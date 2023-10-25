@@ -1,0 +1,38 @@
+<%- include('./layout/header.ejs') %>
+<div class="container">
+    <div class="row my-4">
+        <div class="col-ig-12">
+            <div id="message-container"></div>
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr class="table-dark">
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>E-mail</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((row,index) => { %>
+                            <tr class="align-middle">
+
+                                <td><%= index %></td>
+                                <td><img src="<%= row.Image %>" alt="" width="100" height="100"></td>
+                                <td><%= row.email %></td>
+                                <td><%= row.phone %></td>
+                                <td>
+                                    <a href="/edit/<%= row._id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i> </a>
+                                    <a href="/delete/<%= row._id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i> </a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('layout/footer') %>
+    
